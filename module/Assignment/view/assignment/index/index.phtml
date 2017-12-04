@@ -1,0 +1,94 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php
+$title = 'Add Question';
+$this->headTitle($title);
+?>
+
+</head>
+
+<body>
+     <?php
+    $form = $this->form;
+
+
+    $form->prepare();
+
+    echo $this->form()->openTag($form) . "<br>";
+    //echo $this->formHidden($form->get('paymentid')) . "<br>";
+    ?>
+<div id="Wrapper">
+    
+<div class="container m-t-20 m-b-20 ">
+
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2">
+<div class="GreyBgColor img-rounded p-10">
+
+<div class="row">
+<div class="col-lg-12">
+<div class="BluekBgColor p-10 FontSize18 WhiteTextColor text-center"><b>ADD NEW CALL</b></div>
+</div>
+</div>
+
+
+
+<div class="row m-t-10" id="addque">
+<div class="col-lg-12">
+<!--<div class="BorderBox img-rounded p-10">
+Add your question here
+</div>-->
+ <?php
+        echo $this->formRow($form->get('question1'));
+        ?>
+</div>
+</div>
+
+
+
+<div class="row m-t-30">
+<div class="col-lg-8 col-sm-8"></div>
+<div class="col-lg-4 col-sm-4">
+<span id="plus" class="badge GreenBgColor"><i class="fa fa-plus" ></i></span> Add New Question
+</div>
+</div>
+
+
+<div class="row m-t-20">
+<div class="col-lg-12">
+<!--<button type="button" class="btn btn-primary">Save</button>
+<button type="button" class="btn btn-default">Cancel</button>-->
+ <?php
+    echo $this->formInput($form->get('submit'))."    ";
+    
+     echo $this->formInput($form->get('cancel')) . "<br>";
+    echo $this->form()->closeTag($form) . "<br>";
+    ?> 
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+</div>
+   
+</div>
+</body>
+</html>
+<script> 
+    var cloneCount = 1;;
+   $("#plus").click(function(){
+      $('#addque')
+          .clone()
+          .attr('addque', 'addque'+ cloneCount++)
+          .insertAfter($('[addque^=addque]:last'))
+          .text('addque ' + (cloneCount-1)); //<--For DEMO
+   }); 
+</script>

@@ -1,0 +1,153 @@
+<?php
+$title = 'Add Assignment';
+$this->headTitle($title);
+?>
+
+</head>
+
+<body>
+    <?php
+    $form = $this->form;
+
+
+    $form->prepare();
+
+    echo $this->form()->openTag($form) . "<br>";
+    //echo $this->formHidden($form->get('paymentid')) . "<br>";
+    ?>
+<div id="Wrapper">
+<div class="container m-t-20 m-b-20">
+
+<div class="row">
+<div class="col-lg-8 col-lg-offset-2">
+<div class="GreyBgColor img-rounded p-10">
+
+<div class="row">
+<div class="col-lg-12">
+<div class="BluekBgColor p-10 FontSize18 WhiteTextColor text-center"><b>ADD NEW CALL</b></div>
+</div>
+</div>
+
+<div class="row m-t-10">
+<div class="col-lg-1 col-sm-1 m-t-10"><span class="badge"></span></div>
+<!--<b>1</b-->
+<div class="col-lg-7 col-sm-7">
+<!--<input type="text" class="form-control" placeholder="How you feel today ?" />-->
+     <?php
+        echo $this->formRow($form->get('todayfeel'));
+        ?>
+</div>
+<div class="col-lg-4 col-sm-4">
+<div class="row">
+<div class="col-lg-2 col-sm-2 m-t-10"><span class="badge"></span></div>
+<!--<b>A</b>-->
+<div class="col-lg-10 col-sm-10">
+<!--<select class="form-control">
+<option>Multi-line-text</option>
+</select>-->
+<?php
+      // echo $this->formRow($form->get('todayfeel'));
+        ?>    
+  
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="row m-t-10">
+<div class="col-lg-1 col-sm-1 m-t-10"><span class="badge"></span></div>  
+<!--//<b>2</b>-->
+<div class="col-lg-7 col-sm-7">
+<!--<input type="text" class="form-control" placeholder="Have you taken your 8:00 am medications ?" />-->
+<?Php echo $this->formRow($form->get('takenmed'));?>
+    
+</div>
+<div class="col-lg-4 col-sm-4">
+<div class="row">
+<div class="col-lg-2 col-sm-2 m-t-10"><span class="badge"></span></div>
+<!--<b>A</b>-->
+<div class="col-lg-10 col-sm-10">
+<!--<select class="form-control">
+<option>Single Choice</option>
+</select>-->
+    
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="row m-t-10">
+<div class="col-lg-1 col-sm-1 m-t-10"></div>
+<!--<i class="fa fa-arrow-right"></i>-->
+<div class="col-lg-7 col-sm-7">
+<!--<input type="text" class="form-control" placeholder="No" />-->
+    <?Php echo $this->formSelect($form->get('takenmedid'));
+        ?>
+     <div class="col-lg-7 col-sm-7">
+    <?php echo $this->formElementErrors($form->get('takenmedid')); ?></div>
+</div>
+<div class="col-lg-4 col-sm-4">
+<span class="badge GreenBgColor"><i class="fa fa-plus"></i></span> Add Sub Question
+</div>
+</div>
+
+   
+<div class="row m-t-10">
+<div class="col-lg-1 col-sm-1 m-t-10"></div>
+<span class="badge"><i class="fa fa-search"></i></span>
+<div class="col-lg-7 col-sm-7">
+    <?php //echo $this->formRow($form->get('todayfeel1'));?>
+    <label>Select provide a reason</label>
+<!--<input type="text" class="form-control" placeholder="Select provide a reason" />-->
+
+</div>
+</div>
+<div class="row m-t-10">
+<div class="col-lg-1 col-sm-1 m-t-10"></div>
+<!--<span class="badge"><i class="fa fa-search"></i></span>-->
+<div class="col-lg-7 col-sm-7">
+    <?Php echo $this->formSelect($form->get('takenmed12'));?>
+    <div class="col-lg-7 col-sm-7">
+    <?php echo $this->formElementErrors($form->get('takenmed12')); ?></div>
+<!--<input type="text" class="form-control" placeholder="Select provide a reason" />-->
+
+</div>
+</div>
+
+<div class="row m-t-10">
+<div class="col-lg-8 col-sm-8"></div>
+<div class="col-lg-4 col-sm-4">
+<span class="badge GreenBgColor"><i class="fa fa-plus"></i></span> Add New Question
+</div>
+</div>
+
+
+<div class="row m-t-20">
+<div class="col-lg-12">
+     <?php
+    echo $this->formInput($form->get('submit'))."    ";
+    
+     echo $this->formInput($form->get('cancel')) . "<br>";
+    echo $this->form()->closeTag($form) . "<br>";
+    ?>
+<!--<button type="button" class="btn btn-primary">Save</button>
+<button type="button" class="btn btn-default">Cancel</button>-->
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</body>
+</html>
+<script>
+$(document).ready(function() {
+    $('#takenmed12').multiselect();
+});
+</script>
