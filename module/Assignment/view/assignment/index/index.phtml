@@ -68,11 +68,11 @@ Add your question here
 
 
 
-<div class="row m-t-30">
-<div class="col-lg-8 col-sm-8"></div>
-<div class="col-lg-4 col-sm-4">
-<span id="plus" class="badge GreenBgColor"><i class="fa fa-plus" ></i></span> Add New Question
-</div>
+<div class="row m-t-10">
+<div class="col-lg-12 " id="newclone"></div>
+<!--<div class="col-lg-4 col-sm-4" >-->
+<!--<span id="plus" class="badge GreenBgColor"><i class="fa fa-plus" ></i></span> Add New Question-->
+<!--</div>-->
 </div>
 
 
@@ -117,7 +117,7 @@ var cloneIndex = $(".clonedInput").length;
 
 function clone(){
     $(this).parents(".clonedInput").clone()
-        .appendTo("body")
+        .appendTo("#newclone")
         .attr("id", "clonedInput" +  cloneIndex)
         .find("*")
         .each(function() {
