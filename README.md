@@ -75,3 +75,10 @@ project and you should be ready to go! It should look something like below:
             Allow from all
         </Directory>
     </VirtualHost>
+    
+    
+    
+### Database
+Database Backup file Name    
+
+assignmentonzend.sql
