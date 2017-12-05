@@ -58,7 +58,7 @@ Add your question here
    
    
     <div class="actions">
-        <button class="clone badge GreenBgColor"><i class="fa fa-plus" ></i></button> 
+        <div class="clone badge GreenBgColor"><i class="fa fa-plus" ></i></div> 
         <button class="remove badge GreenBgColor"><i class="fa fa-minus" ></i></button>
     </div>
 </div>
@@ -128,15 +128,15 @@ function clone(){
             }
         })
         .on('click', 'button.clone', clone)
-        .on('click', 'button.remove', remove);
+//        .on('click', 'button.remove', remove);
     cloneIndex++;
 }
 function remove(){
-    $(this).parents(".clonedInput").remove();
+//    $(this).parents(".clonedInput").remove();
 }
 $("button.clone").on("click", clone);
 if(cloneIndex>1){
-    $("button.remove").on("click", remove);
+//    $("button.remove").on("click", remove);
     }
    
 </script>
