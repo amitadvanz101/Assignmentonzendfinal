@@ -9,7 +9,7 @@
 $title = 'Add Question';
 $this->headTitle($title);
 ?>
-
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 </head>
 
 <body>
@@ -46,9 +46,23 @@ $this->headTitle($title);
 <!--<div class="BorderBox img-rounded p-10">
 Add your question here
 </div>-->
- <?php
+<div id="clonedInput1" class="clonedInput">
+    <div>
+        <?php
         echo $this->formRow($form->get('question1'));
         ?>
+<!--        <select class="" name="txtCategory[]" id="question1">
+            <option value="">Please select</option>
+        </select>-->
+    </div>
+   
+   
+    <div class="actions">
+        <button class="clone">Clone</button> 
+        <button class="remove">Remove</button>
+    </div>
+</div>
+ 
 </div>
 </div>
 
@@ -83,10 +97,11 @@ Add your question here
 </div>
    
 </div>
+    
 </body>
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script> 
+
+<!--<script> 
     var cloneCount = 1;;
    $("#plus").click(function(){
       $('#addque')
@@ -95,4 +110,31 @@ Add your question here
           .insertAfter($('[addque^=addque]:last'))
           .text('addque ' + (cloneCount-1)); //<--For DEMO
    }); 
+</script>-->
+<script>
+var regex = /^(.+?)(\d+)$/i;
+var cloneIndex = $(".clonedInput").length;
+
+function clone(){
+    $(this).parents(".clonedInput").clone()
+        .appendTo("body")
+        .attr("id", "clonedInput" +  cloneIndex)
+        .find("*")
+        .each(function() {
+            var id = this.id || "";
+            var match = id.match(regex) || [];
+            if (match.length == 3) {
+                this.id = match[1] + (cloneIndex);
+            }
+        })
+        .on('click', 'button.clone', clone)
+        .on('click', 'button.remove', remove);
+    cloneIndex++;
+}
+function remove(){
+    $(this).parents(".clonedInput").remove();
+}
+$("button.clone").on("click", clone);
+
+$("button.remove").on("click", remove);
 </script>
