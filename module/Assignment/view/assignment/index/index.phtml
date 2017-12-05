@@ -135,7 +135,8 @@ function remove(){
     $(this).parents(".clonedInput").remove();
 }
 $("button.clone").on("click", clone);
-
+if(cloneIndex>1){
     $("button.remove").on("click", remove);
+    }
    
 </script>
